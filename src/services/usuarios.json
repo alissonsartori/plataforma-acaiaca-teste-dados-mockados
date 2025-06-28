@@ -10,7 +10,7 @@
       "city": "Campinas",
       "phoneNumber": "(19) 99999-1111",
       "farmerStory": "Sou agricultor há 15 anos, especializado em cultivo orgânico. Minha propriedade fica em uma região privilegiada com solo fértil e clima favorável para diversas culturas. Acredito na agricultura sustentável e na produção de alimentos saudáveis para a comunidade.",
-      "profileImage": "/src/assets/fotoPerfilMarktplace/alisson.jpeg",
+      "profileImage": "/fotoPerfilMarktplace/alisson.jpeg",
       "rating": 4.8,
       "totalSales": 156,
       "memberSince": "2023-01-15"
@@ -26,7 +26,7 @@
       "city": "Uberlândia",
       "phoneNumber": "(34) 99999-2222",
       "farmerStory": "Herdei a paixão pela agricultura da minha família. Trabalho com fruticultura e hortaliças, sempre buscando inovar com novas técnicas de cultivo. Minha missão é fornecer produtos frescos e de qualidade.",
-      "profileImage": "/src/assets/fotoPerfilMarktplace/jullia.jpeg",
+      "profileImage": "/fotoPerfilMarktplace/jullia.jpeg",
       "rating": 4.9,
       "totalSales": 203,
       "memberSince": "2023-02-20"
@@ -42,7 +42,7 @@
       "city": "Barreiras",
       "phoneNumber": "(77) 99999-3333",
       "farmerStory": "Sou produtor de grãos e oleaginosas há mais de 20 anos. Minha propriedade é referência em tecnologia agrícola e sustentabilidade. Busco sempre a excelência na produção e no relacionamento com os clientes.",
-      "profileImage": "/src/assets/fotoPerfilMarktplace/mayan.jpeg",
+      "profileImage": "/fotoPerfilMarktplace/mayan.jpeg",
       "rating": 4.7,
       "totalSales": 189,
       "memberSince": "2023-03-10"
@@ -58,7 +58,7 @@
       "city": "Juazeiro do Norte",
       "phoneNumber": "(88) 99999-4444",
       "farmerStory": "Especializado em cultivo de hortaliças e ervas aromáticas. Minha propriedade utiliza técnicas de irrigação por gotejamento e controle biológico de pragas. Produzo alimentos orgânicos certificados.",
-      "profileImage": "/src/assets/fotoPerfilMarktplace/ramon.jpeg",
+      "profileImage": "/fotoPerfilMarktplace/ramon.jpeg",
       "rating": 4.6,
       "totalSales": 134,
       "memberSince": "2023-04-05"
@@ -74,7 +74,7 @@
       "city": "Bento Gonçalves",
       "phoneNumber": "(54) 99999-5555",
       "farmerStory": "Produtor de uvas e vinhos há 12 anos. Minha propriedade está localizada na Serra Gaúcha, região tradicional da viticultura brasileira. Produzo vinhos de qualidade premium e uvas de mesa.",
-      "profileImage": "/src/assets/fotoPerfilMarktplace/isaac.jpeg",
+      "profileImage": "/fotoPerfilMarktplace/isaac.jpeg",
       "rating": 4.9,
       "totalSales": 267,
       "memberSince": "2023-01-30"
@@ -90,7 +90,7 @@
       "city": "Nova Friburgo",
       "phoneNumber": "(22) 99999-6666",
       "farmerStory": "Especializado em floricultura e plantas ornamentais. Minha propriedade produz flores e plantas para decoração e paisagismo. Trabalho com mais de 50 variedades de flores e plantas.",
-      "profileImage": "/src/assets/fotoPerfilMarktplace/manoel.jpeg",
+      "profileImage": "/fotoPerfilMarktplace/manoel.jpeg",
       "rating": 4.8,
       "totalSales": 178,
       "memberSince": "2023-05-12"
@@ -106,7 +106,7 @@
       "city": "Petrolina",
       "phoneNumber": "(87) 99999-7777",
       "farmerStory": "Produtora de frutas tropicais há 8 anos. Minha propriedade é especializada em manga, uva e melão. Utilizo técnicas de irrigação inteligente e controle climático para garantir qualidade o ano todo.",
-      "profileImage": "/src/assets/fotoPerfilMarktplace/yasmin.jpeg",
+      "profileImage": "/fotoPerfilMarktplace/yasmin.jpeg",
       "rating": 4.7,
       "totalSales": 145,
       "memberSince": "2023-06-18"
@@ -155,7 +155,7 @@
       "city": "São Paulo",
       "phoneNumber": "(11) 99999-0001",
       "farmerStory": "Agricultor de teste para desenvolvimento.",
-      "profileImage": "/src/assets/fotosPerfis/default.png",
+      "profileImage": "/fotoPerfilMarktplace/alisson.jpeg",
       "rating": 4.5,
       "totalSales": 50,
       "memberSince": "2024-01-01"

@@ -372,7 +372,7 @@
     "unidade": "kg",
     "quantidade": 30,
     "descricao": "Sementes de girassol",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 19
@@ -386,7 +386,7 @@
     "unidade": "kg",
     "quantidade": 70,
     "descricao": "Arroz integral orgânico",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.8,
     "totalVendas": 47
@@ -400,7 +400,7 @@
     "unidade": "kg",
     "quantidade": 50,
     "descricao": "Aveia em flocos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 34
@@ -414,7 +414,7 @@
     "unidade": "kg",
     "quantidade": 35,
     "descricao": "Lentilha vermelha",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.5,
     "totalVendas": 22
@@ -428,7 +428,7 @@
     "unidade": "maço",
     "quantidade": 50,
     "descricao": "Manjericão fresco e aromático",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 28
@@ -442,7 +442,7 @@
     "unidade": "maço",
     "quantidade": 45,
     "descricao": "Hortelã fresca para chás e drinks",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.5,
     "totalVendas": 23
@@ -456,7 +456,7 @@
     "unidade": "maço",
     "quantidade": 30,
     "descricao": "Alecrim fresco para temperos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 19
@@ -470,7 +470,7 @@
     "unidade": "maço",
     "quantidade": 60,
     "descricao": "Salsa fresca para finalização",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.4,
     "totalVendas": 35
@@ -484,7 +484,7 @@
     "unidade": "maço",
     "quantidade": 55,
     "descricao": "Coentro fresco para temperos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.3,
     "totalVendas": 31
@@ -498,7 +498,7 @@
     "unidade": "maço",
     "quantidade": 25,
     "descricao": "Tomilho fresco para carnes",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 16
@@ -512,7 +512,7 @@
     "unidade": "maço",
     "quantidade": 35,
     "descricao": "Orégano fresco para pizzas",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.5,
     "totalVendas": 24
@@ -526,7 +526,7 @@
     "unidade": "maço",
     "quantidade": 20,
     "descricao": "Sálvia fresca para chás",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.4,
     "totalVendas": 12
@@ -540,7 +540,7 @@
     "unidade": "maço",
     "quantidade": 15,
     "descricao": "Lavanda para aromaterapia",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.8,
     "totalVendas": 18
@@ -554,7 +554,7 @@
     "unidade": "maço",
     "quantidade": 25,
     "descricao": "Camomila para chás relaxantes",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 21
@@ -568,7 +568,7 @@
     "unidade": "kg",
     "quantidade": 40,
     "descricao": "Uvas Merlot para vinho",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.9,
     "totalVendas": 45
@@ -582,7 +582,7 @@
     "unidade": "kg",
     "quantidade": 35,
     "descricao": "Uvas Cabernet Sauvignon",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.8,
     "totalVendas": 38
@@ -596,7 +596,7 @@
     "unidade": "garrafa",
     "quantidade": 50,
     "descricao": "Vinho tinto seco da Serra Gaúcha",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.9,
     "totalVendas": 67
@@ -610,7 +610,7 @@
     "unidade": "garrafa",
     "quantidade": 45,
     "descricao": "Vinho branco seco e refrescante",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 52
@@ -624,7 +624,7 @@
     "unidade": "garrafa",
     "quantidade": 30,
     "descricao": "Espumante brut da região",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.8,
     "totalVendas": 41
@@ -638,7 +638,7 @@
     "unidade": "kg",
     "quantidade": 60,
     "descricao": "Uvas de mesa sem sementes",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 48
@@ -652,7 +652,7 @@
     "unidade": "litro",
     "quantidade": 40,
     "descricao": "Suco de uva integral",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.5,
     "totalVendas": 35
@@ -666,7 +666,7 @@
     "unidade": "250g",
     "quantidade": 25,
     "descricao": "Geleia artesanal de uva",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 29
@@ -680,7 +680,7 @@
     "unidade": "500ml",
     "quantidade": 20,
     "descricao": "Vinagre de vinho tinto",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 16
@@ -694,7 +694,7 @@
     "unidade": "kg",
     "quantidade": 15,
     "descricao": "Passas de uva desidratadas",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.8,
     "totalVendas": 23
@@ -708,7 +708,7 @@
     "unidade": "unidade",
     "quantidade": 100,
     "descricao": "Rosas vermelhas frescas",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.8,
     "totalVendas": 78
@@ -722,7 +722,7 @@
     "unidade": "vaso",
     "quantidade": 30,
     "descricao": "Orquídeas em vaso",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.9,
     "totalVendas": 42
@@ -736,7 +736,7 @@
     "unidade": "unidade",
     "quantidade": 80,
     "descricao": "Girassóis frescos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 56
@@ -750,7 +750,7 @@
     "unidade": "maço",
     "quantidade": 60,
     "descricao": "Margaridas brancas",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 38
@@ -764,7 +764,7 @@
     "unidade": "maço",
     "quantidade": 40,
     "descricao": "Tulipas coloridas",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.8,
     "totalVendas": 31
@@ -778,7 +778,7 @@
     "unidade": "maço",
     "quantidade": 50,
     "descricao": "Crisântemos coloridos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.5,
     "totalVendas": 27
@@ -792,7 +792,7 @@
     "unidade": "maço",
     "quantidade": 35,
     "descricao": "Lírios brancos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 24
@@ -806,7 +806,7 @@
     "unidade": "vaso",
     "quantidade": 25,
     "descricao": "Bromélias em vaso",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 19
@@ -820,7 +820,7 @@
     "unidade": "vaso",
     "quantidade": 30,
     "descricao": "Samambaias para decoração",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.5,
     "totalVendas": 22
@@ -834,7 +834,7 @@
     "unidade": "vaso",
     "quantidade": 45,
     "descricao": "Suculentas variadas",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.4,
     "totalVendas": 33
@@ -848,7 +848,7 @@
     "unidade": "kg",
     "quantidade": 80,
     "descricao": "Mangas Palmer doces e suculentas",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.8,
     "totalVendas": 67
@@ -862,7 +862,7 @@
     "unidade": "kg",
     "quantidade": 60,
     "descricao": "Uvas de mesa sem sementes",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 48
@@ -876,7 +876,7 @@
     "unidade": "unidade",
     "quantidade": 70,
     "descricao": "Melões doces e refrescantes",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 52
@@ -890,7 +890,7 @@
     "unidade": "kg",
     "quantidade": 90,
     "descricao": "Bananas prata doces",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.5,
     "totalVendas": 73
@@ -904,7 +904,7 @@
     "unidade": "kg",
     "quantidade": 100,
     "descricao": "Limões Tahiti suculentos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.4,
     "totalVendas": 81
@@ -918,7 +918,7 @@
     "unidade": "unidade",
     "quantidade": 120,
     "descricao": "Cocos verdes frescos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.3,
     "totalVendas": 95
@@ -932,7 +932,7 @@
     "unidade": "kg",
     "quantidade": 50,
     "descricao": "Goiabas vermelhas doces",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.6,
     "totalVendas": 38
@@ -946,7 +946,7 @@
     "unidade": "kg",
     "quantidade": 40,
     "descricao": "Maracujás doces",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.7,
     "totalVendas": 29
@@ -960,7 +960,7 @@
     "unidade": "unidade",
     "quantidade": 60,
     "descricao": "Abacaxis doces e suculentos",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.5,
     "totalVendas": 44
@@ -974,7 +974,7 @@
     "unidade": "kg",
     "quantidade": 35,
     "descricao": "Cajus frescos e doces",
-    "imagem": "/src/assets/IAcai-frutas.png",
+    "imagem": "/IAcai-frutas.png",
     "disponivel": true,
     "avaliacao": 4.4,
     "totalVendas": 26

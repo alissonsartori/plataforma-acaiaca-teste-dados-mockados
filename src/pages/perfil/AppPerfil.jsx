@@ -311,7 +311,7 @@ function AppPerfil() {
 
     if (selectedImage) {
       // Para simplicidade, vamos usar uma URL base64 ou manter a imagem atual
-      updates.imageProfile = userData.imageProfile || "/src/assets/fotosPerfis/default.png";
+      updates.imageProfile = userData.imageProfile || "/default.png";
       hasChanges = true;
       console.log("Imagem selecionada");
     }

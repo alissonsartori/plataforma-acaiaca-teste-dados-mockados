@@ -266,7 +266,7 @@ const AppCadastro = () => {
       if (role === 'agricultor') {
         novoUsuario.propertyName = propertyName;
         novoUsuario.farmerStory = farmerStory;
-        novoUsuario.profileImage = "/src/assets/fotosPerfis/default.png";
+        novoUsuario.profileImage = "/default.png";
         novoUsuario.rating = 0;
         novoUsuario.totalSales = 0;
       }

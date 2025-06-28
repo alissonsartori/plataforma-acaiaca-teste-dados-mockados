@@ -58,13 +58,14 @@ const ProductCard = ({ item, isOwner, onDelete }) => {
       transition="all 0.3s ease"
     >
       <Image
-        src={item.image || "/src/assets/IAcai-frutas.png"}
+        src={item.image || "/IAcai-frutas.png"}
         alt={item.name}
         width="100%"
         height="200px"
         objectFit="cover"
         onError={(e) => {
-          e.target.src = "/src/assets/IAcai-frutas.png";
+          e.target.onerror = null;
+          e.target.src = "/IAcai-frutas.png";
         }}
       />
       <Box p={4}>

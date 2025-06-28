@@ -9,7 +9,7 @@
     "state": "São Paulo",
     "city": "Campinas",
     "farmerStory": "Agricultor apaixonado pela terra há mais de 15 anos. Especializado em cultivo orgânico e sustentável, sempre buscando inovar nas técnicas de plantio para oferecer produtos de qualidade superior.",
-    "imageProfile": "/src/assets/fotoPerfilMarktplace/alisson.jpeg",
+    "imageProfile": "/fotoPerfilMarktplace/alisson.jpeg",
     "createdAt": "2024-01-15T10:30:00Z",
     "updatedAt": "2024-01-15T10:30:00Z"
   },
@@ -23,7 +23,7 @@
     "state": "Rio de Janeiro",
     "city": "Nova Friburgo",
     "farmerStory": "Produtora de hortaliças e ervas aromáticas. Dedico-me ao cultivo de produtos frescos e orgânicos, priorizando a qualidade e o sabor natural dos alimentos.",
-    "imageProfile": "/src/assets/fotoPerfilMarktplace/jullia.jpeg",
+    "imageProfile": "/fotoPerfilMarktplace/jullia.jpeg",
     "createdAt": "2024-01-20T14:15:00Z",
     "updatedAt": "2024-01-20T14:15:00Z"
   },
@@ -37,7 +37,7 @@
     "state": "Minas Gerais",
     "city": "Uberlândia",
     "farmerStory": "Produtor de grãos e cereais com foco em sustentabilidade. Utilizo técnicas modernas de agricultura de precisão para maximizar a produtividade respeitando o meio ambiente.",
-    "imageProfile": "/src/assets/fotoPerfilMarktplace/mayan.jpeg",
+    "imageProfile": "/fotoPerfilMarktplace/mayan.jpeg",
     "createdAt": "2024-02-05T09:45:00Z",
     "updatedAt": "2024-02-05T09:45:00Z"
   },
@@ -51,7 +51,7 @@
     "state": "Ceará",
     "city": "Juazeiro do Norte",
     "farmerStory": "Especialista em fruticultura do semiárido. Cultivo frutas adaptadas ao clima local, como manga, caju e goiaba, sempre com técnicas de irrigação eficientes.",
-    "imageProfile": "/src/assets/fotoPerfilMarktplace/ramon.jpeg",
+    "imageProfile": "/fotoPerfilMarktplace/ramon.jpeg",
     "createdAt": "2024-02-10T16:20:00Z",
     "updatedAt": "2024-02-10T16:20:00Z"
   },
@@ -65,7 +65,7 @@
     "state": "Espírito Santo",
     "city": "Linhares",
     "farmerStory": "Produtor de café e cacau de qualidade premium. Herdei a tradição familiar e modernizei as técnicas, mantendo a excelência dos produtos que meus avós já produziam.",
-    "imageProfile": "/src/assets/fotoPerfilMarktplace/isaac.jpeg",
+    "imageProfile": "/fotoPerfilMarktplace/isaac.jpeg",
     "createdAt": "2024-02-15T11:30:00Z",
     "updatedAt": "2024-02-15T11:30:00Z"
   },
@@ -79,7 +79,7 @@
     "state": "Bahia",
     "city": "Barreiras",
     "farmerStory": "Agricultor experiente com mais de 25 anos de dedicação à terra. Especializado em cultivo de grãos e oleaginosas, sempre buscando novas tecnologias para melhorar a produtividade.",
-    "imageProfile": "/src/assets/fotoPerfilMarktplace/manoel.jpeg",
+    "imageProfile": "/fotoPerfilMarktplace/manoel.jpeg",
     "createdAt": "2024-02-20T13:45:00Z",
     "updatedAt": "2024-02-20T13:45:00Z"
   },
@@ -93,7 +93,7 @@
     "state": "Rio Grande do Sul",
     "city": "Bento Gonçalves",
     "farmerStory": "Produtora de uvas e vinhos artesanais. Dedico-me ao cultivo de uvas finas e à produção de vinhos de qualidade, seguindo as tradições da região serrana gaúcha.",
-    "imageProfile": "/src/assets/fotoPerfilMarktplace/yasmin.jpeg",
+    "imageProfile": "/fotoPerfilMarktplace/yasmin.jpeg",
     "createdAt": "2024-02-25T15:10:00Z",
     "updatedAt": "2024-02-25T15:10:00Z"
   }

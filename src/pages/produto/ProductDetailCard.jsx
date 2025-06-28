@@ -149,7 +149,7 @@ function ProductDetailCard({ product }) {
             style={{ transition: "transform 0.3s ease" }}
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = "/src/assets/default.png";
+              e.target.src = "/default.png";
             }}
           />
         </Box>
