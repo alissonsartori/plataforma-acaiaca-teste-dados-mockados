@@ -43,20 +43,19 @@ import {
   FiMic,
   FiMicOff,
 } from "react-icons/fi";
-import axios from "axios";
 import ImagemPerfil from "../../assets/plataforma-vovo.png";
 import AppLoading from "../../components/loading/AppLoading";
 import AppSelect from "../configuração/AppSelect";
 import AppProducts from "./AppProducts";
 import ProfileDetailItem from "./ProfileDetailItem";
 import { useSpeechRecognition } from "../../hooks/useSpeechRecognition";
-
-const API_URL = import.meta.env.VITE_API_URL;
+import usuariosData from '../../services/usuarios.json';
+import produtosData from '../../services/produtos.json';
 
 const getProfileImageUrl = (imgPath) => {
   if (!imgPath) return "";
   if (imgPath.startsWith("http") || imgPath.startsWith("blob:")) return imgPath;
-  return `${API_URL.replace(/\/$/, "")}/${imgPath.replace(/^\/+/, "")}`;
+  return imgPath;
 };
 
 function AppPerfil() {
@@ -154,23 +153,26 @@ function AppPerfil() {
     }
 
     try {
-      const response = await axios.get(`${API_URL}/user/${userId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const farmerData = response.data.user;
-      setUserData(farmerData);
-      setFormData({
-        username: farmerData.username || "",
-        email: farmerData.email || "",
-        propertyName: farmerData.propertyName || "",
-        cityName: farmerData.cityName || "",
-        stateName: farmerData.stateName || "",
-        phoneNumber: farmerData.phoneNumber || "",
-        imageProfile: farmerData.imageProfile || "",
-        historia: farmerData.historia || "",
-      });
-      if (farmerData.username) {
-        localStorage.setItem("username", farmerData.username);
+      // Buscar usuário diretamente do JSON
+      const user = usuariosData.find(u => u.id === parseInt(userId));
+      
+      if (user) {
+        setUserData(user);
+        setFormData({
+          username: user.username || "",
+          email: user.email || "",
+          propertyName: user.propertyName || "",
+          cityName: user.cityName || user.city || "",
+          stateName: user.stateName || user.state || "",
+          phoneNumber: user.phoneNumber || "",
+          imageProfile: user.imageProfile || "",
+          historia: user.historia || user.farmerStory || "",
+        });
+        if (user.username) {
+          localStorage.setItem("username", user.username);
+        }
+      } else {
+        throw new Error("Usuário não encontrado");
       }
     } catch (err) {
       handleApiError(err);
@@ -271,9 +273,9 @@ function AppPerfil() {
 
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
-    const form = new FormData();
 
     let hasChanges = false;
+    const updates = {};
 
     // Debug logs
     console.log("FormData atual:", formData);
@@ -285,7 +287,7 @@ function AppPerfil() {
         const currentValue = formData[key] || "";
         const originalValue = userData[key] || "";
         if (currentValue !== originalValue) {
-          form.append(key, currentValue);
+          updates[key] = currentValue;
           hasChanges = true;
           console.log(`Campo ${key} mudou:`, {
             original: originalValue,
@@ -297,9 +299,9 @@ function AppPerfil() {
 
     // Verificar especificamente se a história mudou
     const currentHistoria = formData.historia || "";
-    const originalHistoria = userData.historia || "";
+    const originalHistoria = userData.historia || userData.farmerStory || "";
     if (currentHistoria !== originalHistoria) {
-      form.append("historia", currentHistoria);
+      updates.farmerStory = currentHistoria;
       hasChanges = true;
       console.log("História mudou:", {
         original: originalHistoria,
@@ -308,7 +310,8 @@ function AppPerfil() {
     }
 
     if (selectedImage) {
-      form.append("profileImage", selectedImage);
+      // Para simplicidade, vamos usar uma URL base64 ou manter a imagem atual
+      updates.imageProfile = userData.imageProfile || "/src/assets/fotosPerfis/default.png";
       hasChanges = true;
       console.log("Imagem selecionada");
     }
@@ -328,13 +331,13 @@ function AppPerfil() {
     }
 
     try {
-      console.log("Enviando dados para API...");
-      const response = await axios.put(`${API_URL}/user/${userId}/edit`, form, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log("Resposta da API:", response.data);
+      console.log("Atualizando dados do usuário...");
+      
+      // Simular atualização (em uma aplicação real, isso seria uma chamada para a API)
+      // Por enquanto, apenas atualizamos o estado local
+      setUserData(prev => ({ ...prev, ...updates }));
+      setFormData(prev => ({ ...prev, ...updates }));
+      
       toast({
         title: "Perfil atualizado com sucesso!",
         status: "success",
@@ -342,9 +345,9 @@ function AppPerfil() {
         isClosable: true,
       });
       setIsEditing(false);
-      fetchUserData();
+      
     } catch (err) {
-      console.error("Erro na API:", err.response?.data || err.message);
+      console.error("Erro na atualização:", err.message);
       handleApiError(err);
     } finally {
       setIsSubmitting(false);

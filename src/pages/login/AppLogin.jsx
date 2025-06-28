@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../../styles/global-styles.css";
 import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import axios from "axios";
 import {
   Box,
   Text,
@@ -25,6 +24,7 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import ImageAgricultor from "../../assets/agricultor-forms.jpg";
 import IconVoice from "../../assets/icons/voice-command.png";
 import { useSpeechRecognition } from "../../hooks/useSpeechRecognition";
+import usuariosData from '../../services/usuarios.json';
 
 const AppLogin = () => {
   const toast = useToast();
@@ -95,28 +95,42 @@ const AppLogin = () => {
       return;
     }
 
-    const API_URL = import.meta.env.VITE_API_URL;
-
     try {
-      const response = await axios.post(
-        API_URL + "/auth/login",
-        { email, password, role },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+      // Buscar usuário diretamente do JSON
+      const user = usuariosData.find(
+        u => u.email === email && u.password === password && u.role === role
       );
 
-      const { user, token } = response.data;
-      const { id: userId, username: userName, role: userRole, historia } = user;
+      if (!user) {
+        toast({
+          title: "Erro",
+          description: "E-mail, senha ou perfil inválidos.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+        setIsLoading(false);
+        return;
+      }
 
+      // Gerar token simples
+      const token = btoa(JSON.stringify({
+        id: user.id,
+        email: user.email,
+        role: user.role,
+        iat: Date.now(),
+        exp: Date.now() + (7 * 24 * 60 * 60 * 1000)
+      }));
+
+      // Persistir login
       localStorage.setItem("token", token);
-      localStorage.setItem("userRole", userRole);
-      localStorage.setItem("userName", userName);
-      localStorage.setItem("userId", userId);
-      localStorage.setItem("email", email);
-      localStorage.setItem("historia", historia);
+      localStorage.setItem("userRole", user.role);
+      localStorage.setItem("userName", user.username);
+      localStorage.setItem("userId", user.id);
+      localStorage.setItem("email", user.email);
+      if (user.farmerStory) {
+        localStorage.setItem("historia", user.farmerStory);
+      }
 
       toast({
         title: "Sucesso",
@@ -135,24 +149,10 @@ const AppLogin = () => {
         setTimeout(() => window.location.reload(), 100);
       }
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
-      let errorMessage =
-        "Erro ao tentar fazer login. Tente novamente mais tarde.";
-      if (error.response) {
-        errorMessage = `Erro: ${error.response.status} - ${
-          error.response.data?.message ||
-          error.response.data?.msg ||
-          error.response.statusText ||
-          "Erro desconhecido da API"
-        }`;
-      } else if (error.request) {
-        errorMessage =
-          "Não foi possível conectar ao servidor. Verifique sua conexão.";
-      }
-
+      console.error("Erro no login:", error);
       toast({
         title: "Erro",
-        description: errorMessage,
+        description: "Erro ao realizar login. Tente novamente.",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -190,6 +190,28 @@ const AppLogin = () => {
           color={"white"}
           paddingTop="6rem !important"
         >
+          {/* Botão de debug para desenvolvimento */}
+          {import.meta.env.DEV && (
+            <Button
+              position="absolute"
+              top="2rem"
+              right="2rem"
+              size="sm"
+              colorScheme="red"
+              onClick={() => {
+                localStorage.clear();
+                toast({
+                  title: "Dados reinicializados!",
+                  description: "Tente fazer login novamente.",
+                  status: "success",
+                  duration: 3000,
+                });
+              }}
+            >
+              🔄 Reinicializar Dados
+            </Button>
+          )}
+
           <form
             onSubmit={handleSubmit(onSubmit)}
             role="form"

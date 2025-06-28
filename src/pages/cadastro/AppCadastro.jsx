@@ -32,13 +32,13 @@ import IconInfo from "../../assets/icons/info.png";
 import IconVoice from "../../assets/icons/voice-command.png";
 import { useAppStepperControls } from "./AppStepper";
 import AppSelect from "../configuração/AppSelect";
-import axios from "axios";
 import IAcaiBalloon from "./IAcaiBalloon";
 import IAcaiCadastro from "../../assets/IAcai.png";
 import IAcaiCadastro2 from "../../assets/IAcai-cadastro.png";
 import IAcaiCadastro3 from "../../assets/Aicai-mapa.png";
 import IAcaiCadastroFinal from "../../assets/IAcai-cadastro-final.png";
 import { FiMic } from "react-icons/fi";
+import usuariosData from '../../services/usuarios.json';
 
 const AppCadastro = () => {
   const [showCurrent, setShowCurrent] = useState(false);
@@ -79,7 +79,6 @@ const AppCadastro = () => {
   });
 
   const toast = useToast();
-  const API_URL = import.meta.env.VITE_API_URL;
   const navigation = useNavigate();
 
   useEffect(() => {
@@ -235,36 +234,61 @@ const AppCadastro = () => {
       return;
     }
 
-    const payload = {
-      username,
-      email,
-      password,
-      confirmpassword: confirmPassword,
-      role,
-      propertyName,
-      state: selectedEstado,
-      city: selectedCidade,
-      phoneNumber: phone,
-      ...(role === "agricultor" && { farmerStory }),
-    };
-    Object.keys(payload).forEach(
-      (key) =>
-        (payload[key] === undefined || payload[key] === "") &&
-        delete payload[key]
-    );
-
     try {
-      const response = await axios.post(API_URL + "/auth/register", payload, {
-        headers: { "Content-Type": "application/json" },
-      });
+      // Verificar se email já existe
+      const emailExists = usuariosData.find(u => u.email === email);
+      if (emailExists) {
+        toast({
+          title: "Erro no cadastro",
+          description: "Email já cadastrado.",
+          status: "error",
+          duration: 4000,
+          isClosable: true,
+        });
+        setIsSubmitting(false);
+        return;
+      }
 
-      const responseData = response.data;
-      const { token, username: name, id } = responseData;
+      // Criar novo usuário
+      const novoUsuario = {
+        id: usuariosData.length ? Math.max(...usuariosData.map(u => u.id)) + 1 : 1,
+        username: username,
+        email: email,
+        password: password,
+        role: role,
+        state: selectedEstado,
+        city: selectedCidade,
+        phoneNumber: phone,
+        memberSince: new Date().toISOString().split('T')[0]
+      };
+
+      // Adicionar campos específicos para agricultores
+      if (role === 'agricultor') {
+        novoUsuario.propertyName = propertyName;
+        novoUsuario.farmerStory = farmerStory;
+        novoUsuario.profileImage = "/src/assets/fotosPerfis/default.png";
+        novoUsuario.rating = 0;
+        novoUsuario.totalSales = 0;
+      }
+
+      // Gerar token simples
+      const token = btoa(JSON.stringify({
+        id: novoUsuario.id,
+        email: novoUsuario.email,
+        role: novoUsuario.role,
+        iat: Date.now(),
+        exp: Date.now() + (7 * 24 * 60 * 60 * 1000)
+      }));
+
+      // Persistir login
       localStorage.setItem("token", token);
-      localStorage.setItem("userName", name || username);
-      localStorage.setItem("userEmail", email);
-      localStorage.setItem("userRole", role);
-      localStorage.setItem("userId", id);
+      localStorage.setItem('userId', novoUsuario.id);
+      localStorage.setItem('userName', novoUsuario.username);
+      localStorage.setItem('userEmail', novoUsuario.email);
+      localStorage.setItem('userRole', novoUsuario.role);
+      if (novoUsuario.farmerStory) {
+        localStorage.setItem('historia', novoUsuario.farmerStory);
+      }
 
       toast({
         title: "Cadastro realizado!",
@@ -282,35 +306,14 @@ const AppCadastro = () => {
         window.location.reload();
       }
     } catch (error) {
-      console.error("Erro ao fazer cadastro:", error);
-      if (error.response && error.response.data) {
-        console.log("Erro detalhado do backend:", error.response.data);
-        let msg =
-          error.response.data.msg ||
-          error.message ||
-          "Erro ao fazer cadastro. Tente novamente.";
-        const detalhes = Object.entries(error.response.data)
-          .filter(([k]) => k !== "msg")
-          .map(([k, v]) => `${k}: ${v}`)
-          .join("\n");
-        if (detalhes) msg += "\n" + detalhes;
-        toast({
-          title: "Erro no cadastro",
-          description: msg,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-      } else {
-        toast({
-          title: "Erro no cadastro",
-          description:
-            error.message || "Erro ao fazer cadastro. Tente novamente.",
-          status: "error",
-          duration: 3000,
-          isClosable: true,
-        });
-      }
+      console.error("Erro no cadastro:", error);
+      toast({
+        title: "Erro no cadastro",
+        description: "Erro ao realizar cadastro. Tente novamente.",
+        status: "error",
+        duration: 4000,
+        isClosable: true,
+      });
     } finally {
       setIsSubmitting(false);
     }

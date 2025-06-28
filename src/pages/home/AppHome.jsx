@@ -38,8 +38,8 @@ import AppCarrossel from "../../components/carrossel/AppCarrossel";
 import ImagemFeira from "../../assets/feira.jpg";
 import ImageDefault from "../../assets/default.png";
 import AppLoading from "../../components/loading/AppLoading";
-
-const API_URL = import.meta.env.VITE_API_URL
+import usuariosData from '../../services/usuarios.json';
+import produtosData from '../../services/produtos.json';
 
 const useAgriData = () => {
   const navigate = useNavigate();
@@ -56,91 +56,57 @@ const useAgriData = () => {
       }
 
       try {
-        const [productsResponse, farmersResponse] = await Promise.all([
-          fetch(`${API_URL}/products`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-          fetch(`${API_URL}/user/agricultores`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-        ]);
+        // Usar dados diretamente dos JSONs
+        console.log('📦 Carregando produtos do JSON...');
+        console.log('👥 Carregando usuários do JSON...');
 
-        if (productsResponse.status === 401 || farmersResponse.status === 401) {
-          localStorage.clear();
-          navigate("/login");
-          return;
-        }
+        // Filtrar apenas agricultores dos usuários
+        const agricultores = usuariosData.filter(u => u.role === 'agricultor');
+        
+        // Vincular produtos aos agricultores
+        const produtosComAgricultor = produtosData.map(produto => {
+          const agricultor = agricultores.find(u => u.id === produto.agricultorId);
+          return {
+            ...produto,
+            id: produto.id,
+            name: produto.nome,
+            title: produto.nome,
+            price: produto.preco,
+            description: produto.descricao,
+            category: produto.categoria,
+            quantity: produto.quantidade,
+            image: produto.imagem,
+            agricultor: agricultor ? {
+              id: agricultor.id,
+              username: agricultor.username,
+              email: agricultor.email,
+              propertyName: agricultor.propertyName,
+              cityName: agricultor.city,
+              stateName: agricultor.state,
+              phoneNumber: agricultor.phoneNumber,
+              imageProfile: agricultor.profileImage
+            } : null
+          };
+        });
 
-        // Check if responses are successful
-        if (!productsResponse.ok) {
-          console.error(
-            "Products API error:",
-            productsResponse.status,
-            productsResponse.statusText
-          );
-          setProducts([]);
-        } else {
-          const productsData = await productsResponse.json();
+        // Mapear agricultores para o formato esperado
+        const mapearFarmers = agricultores.map((user) => ({
+          ...user,
+          id: user.id,
+          title: user.username,
+          image: user.profileImage || ImageDefault,
+        }));
 
-          // Handle API response structure: {success: true, products: Array, count: number}
-          const productsArray = productsData.products || productsData;
+        setProducts(produtosComAgricultor);
+        setFarmers(mapearFarmers);
+        
+        console.log('✅ Produtos carregados:', produtosComAgricultor.length);
+        console.log('✅ Agricultores carregados:', mapearFarmers.length);
 
-          // Validate that productsArray is an array
-          if (!Array.isArray(productsArray)) {
-            console.error(
-              "API returned non-array products data:",
-              productsData
-            );
-            setProducts([]);
-          } else {
-            const mapearProducts = productsArray.map((p) => ({
-              ...p,
-              id: p.id || p._id,
-              title: p.name,
-              image: p.image ? `${API_URL}${p.image}` : ImageDefault,
-              agricultor: p.User ? { ...p.User } : {},
-            }));
-            setProducts(mapearProducts);
-          }
-        }
-
-        if (!farmersResponse.ok) {
-          console.error(
-            "Farmers API error:",
-            farmersResponse.status,
-            farmersResponse.statusText
-          );
-          setFarmers([]);
-        } else {
-          const farmersData = await farmersResponse.json();
-
-          // Handle API response structure: {success: true, farmers: Array, count: number} or similar
-          const farmersArray =
-            farmersData.farmers ||
-            farmersData.users ||
-            farmersData.agricultores ||
-            farmersData;
-
-          // Validate that farmersArray is an array
-          if (!Array.isArray(farmersArray)) {
-            console.error("API returned non-array farmers data:", farmersData);
-            setFarmers([]);
-          } else {
-            const mapearFarmers = farmersArray.map((user) => ({
-              ...user,
-              id: user.id || user._id || user.userId,
-              title: user.username,
-              image: user.imageProfile?.startsWith("http")
-                ? user.imageProfile
-                : user.imageProfile
-                ? `${API_URL}${user.imageProfile}`
-                : ImageDefault,
-            }));
-            setFarmers(mapearFarmers);
-          }
-        }
       } catch (error) {
-        console.error("Erro ao buscar dados:", error);
+        console.error("Erro ao carregar dados:", error);
+        setProducts([]);
+        setFarmers([]);
       } finally {
         setLoading(false);
       }

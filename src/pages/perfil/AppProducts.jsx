@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import AppCarrossel from "../../components/carrossel/AppCarrossel";
 import ProductCard from "../../components/carrossel/ProductCard";
-import axios from "axios";
 import AppLoading from "../../components/loading/AppLoading";
 import { Box, Center, Heading, Button, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-
-const API_URL = import.meta.env.VITE_API_URL;
+import produtosData from '../../services/produtos.json';
 
 export default function AppProducts({ isOwner, viewedUserId }) {
   const [products, setProducts] = useState([]);
@@ -33,25 +31,26 @@ export default function AppProducts({ isOwner, viewedUserId }) {
       setIsLoading(true);
       setError(null);
       try {
-        const res = await axios.get(`${API_URL}/products/user/${userId}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const payload = res.data.products || res.data || [];
-        setProducts(
-          payload.map((product) => ({
-            id: product.id || product._id,
-            name: product.name,
-            description: product.description,
-            price: product.price,
-            image: product.image,
-            category: product.category,
-            quantity: product.quantity,
-          }))
-        );
+        // Buscar produtos diretamente do JSON
+        const userProducts = produtosData.filter(p => p.agricultorId === parseInt(userId));
+        
+        const formattedProducts = userProducts.map((product) => ({
+          id: product.id,
+          name: product.nome,
+          description: product.descricao,
+          price: product.preco,
+          image: product.imagem,
+          category: product.categoria,
+          quantity: product.quantidade,
+        }));
+
+        setProducts(formattedProducts);
+        console.log('✅ Produtos do usuário carregados:', formattedProducts.length);
+        
       } catch (err) {
         console.error("Erro ao buscar produtos:", err);
         setError(
-          err.response?.data?.message ||
+          err.message ||
             "Erro ao buscar produtos. Verifique sua conexão ou tente novamente."
         );
         setProducts([]);
@@ -102,7 +101,6 @@ export default function AppProducts({ isOwner, viewedUserId }) {
           renderItem={(item) => (
             <ProductCard
               item={item}
-              API_URL={API_URL}
               isOwner={isOwner}
               onDelete={(deletedId) => {
                 setProducts((prevProducts) =>

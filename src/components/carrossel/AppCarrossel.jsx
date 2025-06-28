@@ -4,6 +4,19 @@ import "react-multi-carousel/lib/styles.css";
 import { Heading, IconButton, Flex } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
+// Estilos CSS personalizados para o carrossel
+const carouselStyles = `
+  .carousel-container {
+    padding: 0 20px;
+  }
+  .carousel-item-padding-40-px {
+    padding: 0 12px !important;
+  }
+  .react-multi-carousel-item {
+    padding: 0 12px !important;
+  }
+`;
+
 /**
  * @param {object}
  * @param {Array<object>}
@@ -42,6 +55,7 @@ const AppCarrossel = ({ data, title, renderItem, itemsDesktop = 3 }) => {
 
   return (
     <>
+      <style>{carouselStyles}</style>
       <Heading padding={"2rem 0 1rem 0"}>{title}</Heading>
       <Flex align="center" justify="center" gap={4}>
         <IconButton
@@ -70,11 +84,28 @@ const AppCarrossel = ({ data, title, renderItem, itemsDesktop = 3 }) => {
             removeArrowOnDeviceType={[]}
             dotListClass="custom-dot-list-style"
             arrows={false}
+            partialVisible={false}
+            centerMode={false}
+            customTransition="transform 300ms ease-in-out"
+            ssr={true}
+            draggable={true}
+            swipeable={true}
+            focusOnSelect={false}
+            additionalTransfrom={0}
+            minimumTouchDrag={80}
+            rewind={false}
+            rewindWithAnimation={false}
+            rtl={false}
+            shouldResetAutoplay={true}
+            showDots={false}
+            sliderClass=""
+            slidesToSlide={1}
+            deviceType="desktop"
           >
             {data.map((item, index) => (
-              <React.Fragment key={item.id || index}>
+              <div key={item.id || index} style={{ padding: "0 12px" }}>
                 {renderItem(item, index)}
-              </React.Fragment>
+              </div>
             ))}
           </Carousel>
         </div>

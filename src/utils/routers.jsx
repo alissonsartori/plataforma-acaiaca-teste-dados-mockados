@@ -10,7 +10,7 @@ import AppConfig from "../pages/configuração/AppConfig.jsx";
 import AppPerfil from "../pages/perfil/AppPerfil.jsx";
 import AppSenha from "../pages/configuração/AppSenha.jsx";
 import AppCadastroProduto from "../pages/cadastro/AppProduto.jsx";
-import AppProduto from "../pages/produto/AppProduto.jsx";
+import AppProdutoUnico from "../pages/produto/AppProdutoUnico.jsx";
 import AppPagamento from "../pages/pagamento/AppPagamento.jsx";
 import AppSubsPagamento from "../pages/pagamento/AppSubsPagamento.jsx";
 
@@ -29,7 +29,7 @@ const AppRouters = () => {
       <Route path="/configurações" element={<AppConfig />} />
       <Route path="/esqueci-senha" element={<AppSenha />} />
       <Route path="/cadastro/produto" element={<AppCadastroProduto />} />
-      <Route path="/produto/:id" element={<AppProduto />} />
+      <Route path="/produto/:id" element={<AppProdutoUnico />} />
       <Route path="/assinatura" element={<AppSubsPagamento />} />
       <Route path="/pagamento" element={<AppPagamento />} />
     </Routes>

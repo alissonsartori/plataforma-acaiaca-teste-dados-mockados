@@ -13,6 +13,11 @@ import AppChat from "../components/chat/AppChat.jsx";
 import AppAccessibility from "../components/accessibility/AppAccessibility.jsx";
 import "../styles/accessibility.css";
 
+// Importar funções de debug (apenas em desenvolvimento)
+if (import.meta.env.DEV) {
+  import("./debug.js");
+}
+
 function App() {
   const location = useLocation();
 
